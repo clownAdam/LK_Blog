@@ -50,5 +50,7 @@
     <!--locationAction-->
 <!--    <bean id="locationAction" class="com.itlike.web.LocationAction" scope="prototype"/>-->
     <!--webAction,前端action-->
-    <bean id="webAction" class="com.itlike.web.WebAction" scope="prototype"/>
+    <bean id="webAction" class="com.itlike.web.WebAction" scope="prototype">
+        <property name="articleService" ref="articleService"/>
+    </bean>
 </beans>
