@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <import resource="hibernateApplication.xml"/>
+    <!--loginAction-->
+    <bean id="loginAction" class="com.itlike.web.LoginAction" scope="prototype">
+        <property name="loginService" ref="loginService"/>
+    </bean>
+    <!--loginService-->
+    <bean id="loginService" class="com.itlike.service.impl.LoginServiceImpl">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+    <!--loginDao-->
+    <bean id="userDao" class="com.itlike.dao.impl.UserDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!--categoryAction-->
+    <bean id="categoryAction" class="com.itlike.web.CategoryAction" scope="prototype">
+        <property name="categoryService" ref="categoryService"/>
+    </bean>
+    <!--categoryService-->
+    <bean id="categoryService" class="com.itlike.service.impl.CategoryServiceImpl">
+        <property name="categoryDao" ref="categoryDao"/>
+    </bean>
+    <bean id="categoryDao" class="com.itlike.dao.impl.CategoryDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!--articleAction-->
+    <bean id="articleAction" class="com.itlike.web.ArticleAction" scope="prototype">
+        <property name="articleService" ref="articleService"/>
+    </bean>
+    <!--articleService-->
+    <bean id="articleService" class="com.itlike.service.impl.ArticleServiceImpl">
+        <property name="articleDao" ref="articleDao"/>
+    </bean>
+    <!--articleDao-->
+    <bean id="articleDao" class="com.itlike.dao.impl.ArticleDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--locationAction-->
+<!--    <bean id="locationAction" class="com.itlike.web.LocationAction" scope="prototype"/>-->
+    <!--webAction,前端action-->
+    <bean id="webAction" class="com.itlike.web.WebAction" scope="prototype"/>
+</beans>
