@@ -97,7 +97,7 @@
                 var cname = obj.cname;
                 // $("#category_select").append("<option value=" + obj.cid + ">" + obj.cname + "</option>");
             // <li class="active"><a href="index.jsp">Java</a></li>
-                $("#nav").append("<li class='active'><a href='index.jsp'>"+cname+"</a></li>");
+                $("#nav").append("<li class='active'><a href='index.jsp?parentid="+obj.cid+"'>"+cname+"</a></li>");
                 console.log(obj.cname);
             });
         }, "json");

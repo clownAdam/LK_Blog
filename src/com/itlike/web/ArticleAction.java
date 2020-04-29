@@ -21,6 +21,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * @author clown
+ */
 public class ArticleAction extends ActionSupport implements ModelDriven<Article> {
     private Article article = new Article();
 
